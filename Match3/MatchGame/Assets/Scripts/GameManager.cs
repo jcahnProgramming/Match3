@@ -19,6 +19,9 @@ public class GameManager : Singleton<GameManager>
     // is the game over?
     bool m_isGameOver = false;
 
+    //is the player ready to move to the main menu?
+    bool m_isReadyToReturnToMainMenu = false;
+
     public bool IsGameOver { get { return m_isGameOver; } set { m_isGameOver = value; } }
 
     // do we have a winner?
@@ -270,17 +273,26 @@ public class GameManager : Singleton<GameManager>
         {
             UIManager.Instance.screenFader.FadeOn();
         }
+        m_isReadyToReturnToMainMenu = true;
 
-        // wait until read to reload
+        // wait until ready to reload
         while (!m_isReadyToReload)
         {
             yield return null;
         }
+        
+    }
 
-        // reload the scene (you would customize this to go back to the menu or go to the next level
-        // but we just reload the same scene in this demo
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    public void BackToMainMenu()
+    {
+        if (m_isReadyToReturnToMainMenu)
+        {
+            m_isReadyToReturnToMainMenu = false;
 
+            //To Main Menu
+            DevTools.Instance.Log(0, "GAMEMANAGER", "Launching MainMenu");
+            SceneManager.LoadScene(0);
+        }
     }
 
     void ShowWinScreen()
