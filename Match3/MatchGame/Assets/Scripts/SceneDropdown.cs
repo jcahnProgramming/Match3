@@ -9,8 +9,17 @@ public class SceneDropdown : MonoBehaviour
 {
     public TMP_Dropdown dd;
 
+    public MainMenu menu;
+
+    private void Start()
+    {
+        dd = GetComponent<TMP_Dropdown>();
+    }
+
     public void SetCurrentScene()
     {
-        MainMenu.Instance.ActiveScene = dd.options[dd.value].text;
+        menu.ActiveScene = dd.options[dd.value].text;
+
+        menu.ActiveSceneNumber = dd.value;
     }
 }

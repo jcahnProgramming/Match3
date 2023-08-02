@@ -100,6 +100,9 @@ public class Board : MonoBehaviour
     // manually positioned GamePieces, placed before the Board is filled
     public StartingObject[] startingGamePieces;
 
+    // manually positioned Blockers, placed before board is filled
+    public StartingObject[] startingBlockers;
+
     // manager class for particle effects
     public ParticleManager particleManager;
 

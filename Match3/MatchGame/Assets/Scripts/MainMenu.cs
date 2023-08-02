@@ -5,19 +5,47 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : Singleton<MainMenu>
+public class MainMenu : MonoBehaviour
 {
     public TMP_Text playerID;
 
     public SceneDropdown sceneListDropdown;
 
+    Button m_playLevelButton;
+
     public string ActiveScene;
+
+    public int ActiveSceneNumber;
 
     private void Start()
     {
+        SetRequiredInfo();
+
         playerID.gameObject.SetActive(true);
 
         SetPlayerID();
+    }
+
+    private void Update()
+    {
+            if (sceneListDropdown == null && playerID == null)
+            {
+                SetRequiredInfo();
+            }
+    }
+
+    public void SetRequiredInfo()
+    {
+        if (SceneManager.loadedSceneCount == 0)
+        {
+            playerID = GameObject.Find("GameInformationText").GetComponent<TMP_Text>();
+            sceneListDropdown = GameObject.Find("SceneListDropdown").GetComponent<SceneDropdown>();
+            m_playLevelButton = GameObject.Find("PlayLevelButton").GetComponent<Button>();
+
+            m_playLevelButton.onClick.AddListener(PlayLevel);
+        }
+
+        
     }
 
     public void MoveToScene(string sceneName)
@@ -49,7 +77,10 @@ public class MainMenu : Singleton<MainMenu>
     {
         if (ActiveScene != "")
         {
-            SceneManager.LoadScene(ActiveScene);
+            int levelNumber = ActiveSceneNumber;
+
+            PlayerPrefsSaveLoad.Instance.SaveInt("level", levelNumber);
+            SceneManager.LoadScene(1);
         }
     }
 
