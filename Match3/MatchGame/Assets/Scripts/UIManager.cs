@@ -36,6 +36,8 @@ public class UIManager : Singleton<UIManager>
     {
         base.Awake();
 
+        //GetReferences();
+
         if (messageWindow != null)
         {
             messageWindow.gameObject.SetActive(true);
@@ -46,6 +48,16 @@ public class UIManager : Singleton<UIManager>
             screenFader.gameObject.SetActive(true);
         }
     }
+
+    void GetReferences()
+    {
+        collectionGoalLayout = GameObject.Find("Canvas,Overlay/TopPanel/CollectionGoalLayout");
+        levelNameText = GameObject.Find("Canvas,Overlay/TopPanel/LevelNameText").GetComponent<Text>();
+        screenFader = GameObject.Find("Canvas,Overlay/TopPanel/ScreenFader").GetComponent<ScreenFader>();
+
+
+    }
+
 
     public void SetupCollectionGoalLayout(CollectionGoal[] collectionGoals, GameObject goalLayout, int spacingWidth)
     {

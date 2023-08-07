@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3330593785776072574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5858943634280230600}
+  - component: {fileID: 6547095882429472198}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5858943634280230600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330593785776072574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6547095882429472198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330593785776072574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032b1ece35089fd498c1a82643e3de27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicClips:
+  - {fileID: 8300000, guid: e75e89afb6e1648e7a4a2ac64328a7c0, type: 3}
+  - {fileID: 8300000, guid: e5e029a21fda14206a9ff1423a1302a9, type: 3}
+  winClips:
+  - {fileID: 8300000, guid: 5f9fb0bfcf06e4304aab13b97645fe13, type: 3}
+  - {fileID: 8300000, guid: b43b2e7180aa04f788c269504edc72de, type: 3}
+  loseClips:
+  - {fileID: 8300000, guid: ed4ad50d33af142e6be4b65f4d37e37c, type: 3}
+  bonusClips:
+  - {fileID: 8300000, guid: 3235eb35ca4de45b9901ea9ccbff8d77, type: 3}
+  - {fileID: 8300000, guid: 6d894f08d52a44322a56f6afc48f59e0, type: 3}
+  - {fileID: 8300000, guid: eadcfb9a0c2cb4bea8112ac470640c8e, type: 3}
+  musicVolume: 0.5
+  fxVolume: 1
+  lowPitch: 0.95
+  highPitch: 1.05
