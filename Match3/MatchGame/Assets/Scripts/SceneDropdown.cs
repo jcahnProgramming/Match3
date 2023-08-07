@@ -11,6 +11,7 @@ public class SceneDropdown : MonoBehaviour
 
     public void SetCurrentScene()
     {
-        MainMenu.Instance.ActiveScene = dd.options[dd.value].text;
+        PlayerPrefs.SetString("SceneToPlay", dd.options[dd.value].text);
+        //MainMenu.Instance.ActiveScene = dd.options[dd.value].text;
     }
 }

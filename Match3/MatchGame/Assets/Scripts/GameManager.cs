@@ -285,6 +285,12 @@ public class GameManager : Singleton<GameManager>
 
     public void BackToMainMenu()
     {
+        //if (m_isReadyToReturnToMainMenu)
+        //{
+        //    Application.Quit();
+        //}
+
+
         if (m_isReadyToReturnToMainMenu)
         {
             m_isReadyToReturnToMainMenu = false;

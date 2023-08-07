@@ -5,17 +5,22 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : Singleton<MainMenu>
+public class MainMenu : MonoBehaviour
 {
-    public TMP_Text playerID;
+    [SerializeField]public TMP_Text playerID;
 
-    public SceneDropdown sceneListDropdown;
+    [SerializeField]public SceneDropdown sceneListDropdown;
 
     public string ActiveScene;
 
     private void Start()
     {
         playerID.gameObject.SetActive(true);
+
+        playerID = GameObject.Find("GameInformationText").GetComponent<TMP_Text>();
+        sceneListDropdown = GameObject.Find("SceneListDropdown").GetComponent<SceneDropdown>();
+
+
 
         SetPlayerID();
     }
@@ -47,7 +52,7 @@ public class MainMenu : Singleton<MainMenu>
 
     public void PlayLevel()
     {
-        if (ActiveScene != "")
+        if (PlayerPrefs.GetString("SceneToPlay") != "")
         {
             SceneManager.LoadScene(ActiveScene);
         }
