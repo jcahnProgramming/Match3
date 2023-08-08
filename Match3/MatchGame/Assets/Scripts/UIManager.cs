@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine.SceneManagement;
 
 public class UIManager : Singleton<UIManager>
 {
 
-    public GameObject collectionGoalLayout;
+    [SerializeField]public GameObject collectionGoalLayout;
 
     public int collectionGoalBaseWidth = 125;
 
@@ -31,10 +35,47 @@ public class UIManager : Singleton<UIManager>
 
     public Timer timer;
 
+    public bool GetInfo = false;
+
+    private void Update()
+    {
+        if (GetInfo)
+        {
+            GetData();
+        }
+    }
+
+    void GetData(Scene scene, LoadSceneMode mode)
+    {
+        collectionGoalLayout = GameObject.Find("Canvas,Overlay/TopPanel/CollectionGoalLayout");
+        screenFader = GameObject.FindWithTag("ScreenFader").GetComponent<ScreenFader>();
+        levelNameText = GameObject.Find("Canvas,Overlay/TopPanel/LevelNameText").GetComponent<Text>();
+        movesLeftText = GameObject.Find("Canvas,Overlay/TopPanel/MovesLeftText").GetComponent<Text>();
+        scoreMeter = GameObject.Find("Canvas,ScreenSpaceCameraBackground/BottomPanel/ScoreMeter").GetComponent<ScoreMeter>();
+        messageWindow = GameObject.Find("Canvas,Overlay/MessageWindow").GetComponent<MessageWindow>();
+        movesCounter = GameObject.Find("Canvas,Overlay/MovesCounter");
+        timer = GameObject.Find("Canvas,Overlay/TimerUI").GetComponent<Timer>();  
+    }
+
+    void GetData()
+    {
+        collectionGoalLayout = GameObject.Find("Canvas,Overlay/TopPanel/CollectionGoalLayout");
+        screenFader = GameObject.FindWithTag("ScreenFader").GetComponent<ScreenFader>();
+        levelNameText = GameObject.Find("Canvas,Overlay/TopPanel/LevelNameText").GetComponent<Text>();
+        movesLeftText = GameObject.Find("Canvas,Overlay/TopPanel/MovesLeftText").GetComponent<Text>();
+        scoreMeter = GameObject.Find("Canvas,ScreenSpaceCameraBackground/BottomPanel/ScoreMeter").GetComponent<ScoreMeter>();
+        messageWindow = GameObject.Find("Canvas,Overlay/MessageWindow").GetComponent<MessageWindow>();
+        movesCounter = GameObject.Find("Canvas,Overlay/MovesCounter");
+        timer = GameObject.Find("Canvas,Overlay/TimerUI").GetComponent<Timer>();
+    }
+
+
 
     public override void Awake()
     {
         base.Awake();
+
+        //SceneManager.sceneLoaded += GetData;
 
         if (messageWindow != null)
         {

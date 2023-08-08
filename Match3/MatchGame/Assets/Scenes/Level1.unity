@@ -34253,7 +34253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9e252ec9c82734cb9b6b13d5f35f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectionGoalLayout: {fileID: 1243857309}
+  collectionGoalLayout: {fileID: 0}
   collectionGoalBaseWidth: 100
   screenFader: {fileID: 1236227846}
   levelNameText: {fileID: 472729770}
@@ -34262,6 +34262,7 @@ MonoBehaviour:
   messageWindow: {fileID: 1281100852}
   movesCounter: {fileID: 913355110}
   timer: {fileID: 1364423506}
+  GetInfo: 0
 --- !u!1 &1056349794
 GameObject:
   m_ObjectHideFlags: 0
@@ -34948,7 +34949,7 @@ GameObject:
   - component: {fileID: 1236227846}
   m_Layer: 5
   m_Name: ScreenFader
-  m_TagString: Untagged
+  m_TagString: ScreenFader
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35039,6 +35040,7 @@ GameObject:
   - component: {fileID: 1243857312}
   - component: {fileID: 1243857311}
   - component: {fileID: 1243857313}
+  - component: {fileID: 1243857314}
   m_Layer: 5
   m_Name: CollectionGoalLayout
   m_TagString: Untagged
@@ -35135,6 +35137,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1243857314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243857309}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64612dfa13087d40ab9cfb8dded77cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_collectionGoal: 
 --- !u!1 &1281100847
 GameObject:
   m_ObjectHideFlags: 0
